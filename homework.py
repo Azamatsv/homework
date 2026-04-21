@@ -1,13 +1,22 @@
-# stats_list = [10, 20, 30, 40, 50]
-# max = {}
-
-# def stats(data):
-
-#     for n in data:
-#         if n > 0:
-#             max += n
-#     return n
-# m = stats(stats_list)
+stats_list = [10, 20, 30, 40, 50]
+def stats(data):
+    if not data: return {'min': None, 'max': None, 'avg': None, 'sum': 0}
+    minimum = data[0]
+    maximum = data[0]
+    total = 0
+    
+    for n in data:
+        total += n
+        
+        if n > maximum:
+            maximum = n
+        if n < minimum:
+            minimum = n        
+    avg = total / len(data)
+    result = {"min":minimum, "max": maximum, "avg": avg, "sum":total}  
+    return result
+m = stats(stats_list)
+print(m)
 
 # # вторая задача 
 # count_words = ("Привет мир привет Python мир мир")
